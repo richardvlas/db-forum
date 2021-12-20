@@ -67,8 +67,26 @@ CREATE TABLE posts ( content TEXT,
                      id SERIAL );
 ```                  
 
-To verify that the table `posts` was created type
+To verify that the table `posts` was created type `\dt` that shows all database tables
 
 ```
-\dt forum
+         List of relations
+ Schema | Name  | Type  |  Owner
+--------+-------+-------+----------
+ public | posts | table | postgres
+(1 row)
+```
+
+And finaly to show the table schema type
+
+```
+\d posts
+```
+
+that returns
+
+```
+ content | text                        |           |          |
+ time    | timestamp without time zone |           |          | CURRENT_TIMESTAMP
+ id      | integer                     |           | not null | nextval('posts_id_seq'::regclass)
 ```
